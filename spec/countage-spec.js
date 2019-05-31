@@ -32,4 +32,10 @@ it('should count how long you should stay on Earth', function(){
 
 });
 
+it('shoul check if you overmeet expectations:)', function(){
+    var myBirthDay= new MyBirthDay(1991,07,30,25);
+expect (myBirthDay.countLifeExpectancy()).toEqual(2);
+
+});
+
 });

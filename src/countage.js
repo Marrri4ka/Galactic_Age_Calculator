@@ -19,7 +19,17 @@ MyBirthDay.prototype.ageOnPlanet = function(multiplier)
 };
 
 MyBirthDay.prototype.countLifeExpectancy = function(){
-  return this.lifeexpectancy- this.countAgeOnEarth();
+
+
+  if(this.lifeexpectancy < this.countAgeOnEarth())
+  {
+    return this.countAgeOnEarth() - this.lifeexpectancy;
+  }
+
+  else {
+    return this.lifeexpectancy- this.countAgeOnEarth();
+  }
+
 
 };
 
