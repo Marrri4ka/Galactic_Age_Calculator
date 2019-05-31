@@ -1,10 +1,10 @@
-function MyBirthDay(year,month,day)
+function MyBirthDay(year,month,day,lifeexpectancy)
 
 {
   this.year = year;
   this.month = month;
   this.day = day;
-  // this.lifeexpectancy = lifeexpectancy;
+  this.lifeexpectancy = lifeexpectancy;
 }
 MyBirthDay.prototype.ageOnPlanet = function(multiplier)
 {
@@ -16,6 +16,11 @@ MyBirthDay.prototype.ageOnPlanet = function(multiplier)
   var MercuryYears = 365*multiplier;
   var res1 = Math.floor(res/MercuryYears);
   return res1;
+};
+
+MyBirthDay.prototype.countLifeExpectancy = function(){
+  return this.lifeexpectancy- this.countAgeOnEarth();
+
 };
 
 

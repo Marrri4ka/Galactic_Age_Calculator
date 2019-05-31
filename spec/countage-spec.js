@@ -26,5 +26,10 @@ describe ('MyBirthDay', function(){
 
     });
 
+it('should count how long you should stay on Earth', function(){
+  var myBirthDay= new MyBirthDay(1991,07,30,90);
+  expect(myBirthDay.countLifeExpectancy()).toEqual(63);
+
+});
 
 });
