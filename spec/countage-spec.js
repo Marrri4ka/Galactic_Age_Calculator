@@ -1,4 +1,5 @@
 const MyBirthDay = require('./../src/countage.js').birthdayModule;
+
 describe ('MyBirthDay', function() {
   it ('should count age on Earth', function() {
     const myBirthDay = new MyBirthDay(1991,07,30,"USA","m");
@@ -31,5 +32,26 @@ describe ('MyBirthDay', function() {
   it('should check if you exceed expectations:)', function() {
     const myBirthDay= new MyBirthDay(1963,01,09,"USA","f");
     expect (myBirthDay.countLifeExpectancy()).toEqual(24);
+  });
+
+
+  it('should count how long you should stay on Mars,', function() {
+    const myBirthDay= new MyBirthDay(1963,01,09,"USA","f");//80
+    expect (myBirthDay.countLifeExpectancyMars()).toEqual(51);
+  });
+
+  it('should count how long you should stay on Mercurt,', function() {
+    const myBirthDay= new MyBirthDay(1991,07,30,"USA","f");//80
+    expect (myBirthDay.countLifeExpectancyMercury()).toEqual(35);
+  });
+
+  it('should count how long you should stay on Jupiter,', function() {
+    const myBirthDay= new MyBirthDay(1991,07,30,"USA","f");//80
+    expect (myBirthDay.countLifeExpectancyJupiter()).toEqual(78);
+  });
+
+  it('should count how long you should stay on Venus,', function() {
+    const myBirthDay= new MyBirthDay(1991,07,30,"USA","f");//80
+    expect (myBirthDay.countLifeExpectancyVenus()).toEqual(36);
   });
 });
