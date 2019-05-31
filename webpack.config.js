@@ -26,20 +26,27 @@ module.exports = {
   ],
   module: {
     rules: [{
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
-        test: /\.js$/,
-        exclude: [
-          /node_modules/,
-          /spec/
-        ],
-        loader: "eslint-loader"
-      }
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader'
+      ]
+    },
+
+    {
+      test: /\.(png|svg|jpg|gif)$/,
+      use: [
+        'file-loader'
+      ]
+    },
+    {
+      test: /\.js$/,
+      exclude: [
+        /node_modules/,
+        /spec/
+      ],
+      loader: "eslint-loader"
+    }
     ]
   }
 };

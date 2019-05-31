@@ -1,39 +1,64 @@
-function MyBirthDay(year,month,day,lifeexpectancy)
-
+function MyBirthDay(year,month,day,country,gender)
 {
   this.year = year;
   this.month = month;
   this.day = day;
-  this.lifeexpectancy = lifeexpectancy;
+  this.country = country;
+  this.gender = gender;
 }
+
 MyBirthDay.prototype.ageOnPlanet = function(multiplier)
 {
-  var oneDay = 24*60*60*1000; // milisec
-  var todaysdate = new Date();
-  var birthday = new Date(this.year,this.month,this.day);
+  const oneDay = 24*60*60*1000; // milisec
+  let todaysdate = new Date();
+  const birthday = new Date(this.year,this.month,this.day);
 
-  var res = Math.round(Math.abs(todaysdate.getTime() - birthday.getTime())/oneDay);
-  var MercuryYears = 365*multiplier;
-  var res1 = Math.floor(res/MercuryYears);
+  let res = Math.round(Math.abs(todaysdate.getTime() - birthday.getTime())/oneDay);
+  const MercuryYears = 365*multiplier;
+  let res1 = Math.floor(res/MercuryYears);
   return res1;
+};
+
+MyBirthDay.prototype.getAverageLifeAge = function()
+{
+  if(this.country === "USA" && this.gender === "m" )
+  {
+    return 75;
+  }
+  if(this.country === "USA" && this.gender === "f")
+  {
+    return 80;
+  }
+  if(this.country === "UK" && this.gender === "m" )
+  {
+    return 78;
+  }
+  if(this.country === "UK" && this.gender === "f")
+  {
+    return 83;
+  }
+  if(this.country === "UKR" && this.gender === "m" )
+  {
+    return 68;
+  }
+  if(this.country === "UKR" && this.gender === "f")
+  {
+    return 72;
+  }
+
 };
 
 MyBirthDay.prototype.countLifeExpectancy = function(){
 
-
-  if(this.lifeexpectancy < this.countAgeOnEarth())
+  if(this.getAverageLifeAge() < this.countAgeOnEarth())
   {
-    return this.countAgeOnEarth() - this.lifeexpectancy;
+    return this.countAgeOnEarth() - this.getAverageLifeAge();
   }
 
   else {
-    return this.lifeexpectancy- this.countAgeOnEarth();
+    return this.getAverageLifeAge()- this.countAgeOnEarth();
   }
-
-
 };
-
-
 
 MyBirthDay.prototype.countAgeOnEarth = function()
 {
@@ -65,7 +90,5 @@ MyBirthDay.prototype.countAgeOnJupiter = function()
 
   return this.ageOnPlanet(11.86);
 };
-
-
 
 exports.birthdayModule = MyBirthDay;
