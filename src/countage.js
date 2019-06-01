@@ -1,4 +1,4 @@
-class MyBirthDay
+export class MyBirthDay
 {
   constructor(year,month,day,country,gender)
   {
@@ -123,5 +123,3 @@ class MyBirthDay
     return this.ageOnPlanet(11.86);
   }
 }
-
-exports.birthdayModule = MyBirthDay;
